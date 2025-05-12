@@ -1,39 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Google_Api_by_adled.MainPage">
-
+             x:Class="Google_Api_by_adled.MainPage" BackgroundColor="#262626">
+    
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="10">
 
             <!-- SearchBar alineado a la derecha -->
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
+            <Grid  ColumnDefinitions="*" RowDefinitions="*,*">
+              
 
-                <SearchBar Grid.Column="1" 
-                       WidthRequest="200"
-                       Placeholder="Search..."
-                       TextChanged="OnSearchBarTextChanged"/>
-                <CollectionView x:Name="ItemsCollectionView">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Label Text="{Binding}" FontSize="18"/>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                <Entry PlaceholderColor="#fff" TextColor="#fff" Grid.Column="0" Grid.Row="0" x:Name="CityEntry" Placeholder="Escribe una ciudad" />
+                <Button Grid.Column="0" Grid.Row="2" Text="Obtener Clima" Clicked="OnGetWeatherClicked" />
             </Grid>
 
             <!-- Dos cuadros grandes -->
+            <Grid ColumnDefinitions="*" RowDefinitions="*">
+                <Label TextColor="#fff" x:Name="Ciudad" FontAttributes="Bold"  FontSize="25"></Label>
+            </Grid>
             <Grid ColumnSpacing="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Frame Grid.Column="0" HeightRequest="150" BorderColor="Black"/>
-                <Frame Grid.Column="1" HeightRequest="150" BorderColor="Black"/>
+                <Frame BackgroundColor="#5b3674" Grid.Column="0" HeightRequest="150" BorderColor="#262626">
+
+                    <Grid ColumnDefinitions="*" RowDefinitions="*,55,*" RowSpacing="10">
+                    <Label TextColor="#fff" x:Name="Sensacion" Grid.Column="0" Grid.Row="0" Text="Sensacion">
+                        
+                    </Label>
+                        <Label TextColor="#fff" HorizontalOptions="Center" x:Name="Temperatura" FontSize="30" FontAttributes="Bold" Grid.Column="0" Grid.Row="1" Text="Temperatura">
+
+                    </Label>
+                        <Label TextColor="#fff" x:Name="Humedad" Grid.Column="0" Grid.Row="2" Text="Humedad">
+
+                    </Label>
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor="#5b3674" Grid.Column="1" HeightRequest="150" BorderColor="#262626">
+                    <Grid ColumnDefinitions="*" RowDefinitions="*,20" RowSpacing="0">
+                        <Image HeightRequest="130" Aspect="AspectFit" x:Name="EstadoIcon" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0"></Image>
+                        <Label TextColor="#fff" x:Name="Estado" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1" Text="Estado"></Label>
+                    </Grid>
+                </Frame>
             </Grid>
 
             <!-- Cuatro cuadros pequeños -->
@@ -44,16 +53,45 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Frame Grid.Column="0" HeightRequest="80" BorderColor="Black"/>
-                <Frame Grid.Column="1" HeightRequest="80" BorderColor="Black"/>
-                <Frame Grid.Column="2" HeightRequest="80" BorderColor="Black"/>
-                <Frame Grid.Column="3" HeightRequest="80" BorderColor="Black"/>
+                <Frame BackgroundColor="#5b3674" Grid.Column="0" HeightRequest="200" BorderColor="#262626">
+                    <Grid ColumnDefinitions="*" RowDefinitions="*,*,*">
+                        <Label TextColor="#fff" FontAttributes="Bold" x:Name="D1" Grid.Row="0" Grid.Column="0" Text="D1" HorizontalOptions="Center"></Label>
+                        <Image x:Name="ImaD1" Grid.Row="1" Grid.Column="0"  HorizontalOptions="Center"/>
+                        <Label TextColor="#fff" x:Name="EstD1" Grid.Row="2" Grid.Column="0" Text="D1" FontSize="11" HorizontalTextAlignment="Center"></Label>
+
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor="#5b3674" Grid.Column="1" HeightRequest="200" BorderColor="#262626">
+                    <Grid ColumnDefinitions="*" RowDefinitions="*,*,*">
+                        <Label TextColor="#fff" FontAttributes="Bold" x:Name="D2" Grid.Row="0" Grid.Column="0" Text="D1" HorizontalOptions="Center"></Label>
+                        <Image x:Name="ImaD2" Grid.Row="1" Grid.Column="0"  HorizontalOptions="Center"/>
+                        <Label TextColor="#fff"  x:Name="EstD2" Grid.Row="2" Grid.Column="0" Text="D1" FontSize="11" HorizontalTextAlignment="Center"></Label>
+
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor="#5b3674" Grid.Column="2" HeightRequest="200" BorderColor="#262626">
+                    <Grid ColumnDefinitions="*" RowDefinitions="*,*,*">
+                        <Label TextColor="#fff" FontAttributes="Bold" x:Name="D3" Grid.Row="0" Grid.Column="0" Text="D1" FontSize="11" HorizontalOptions="Center"></Label>
+                        <Image x:Name="ImaD3" Grid.Row="1" Grid.Column="0"  HorizontalOptions="Center"/>
+                        <Label TextColor="#fff" x:Name="EstD3" Grid.Row="2" Grid.Column="0" FontSize="11" Text="D1" HorizontalTextAlignment="Center"></Label>
+
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor="#5b3674" Grid.Column="3" HeightRequest="200" BorderColor="#262626">
+                    <Grid ColumnDefinitions="*" RowDefinitions="*,*,*">
+                        <Label TextColor="#fff" FontAttributes="Bold" x:Name="D4" Grid.Row="0" Grid.Column="0" Text="D1" HorizontalTextAlignment="Center"></Label>
+                        <Image x:Name="ImaD4" Grid.Row="1" Grid.Column="0"  HorizontalOptions="Center"/>
+                        <Label TextColor="#fff" x:Name="EstD4" Grid.Row="2" Grid.Column="0" FontSize="11"  HorizontalTextAlignment="Center" Text="D1"></Label>
+
+                    </Grid>
+                </Frame>
             </Grid>
 
             <!-- Label centrado -->
-            <Label Text="label"
-               HorizontalOptions="Center"
-               BackgroundColor="White"
+            <Label Text="Historial de busqueda"
+               FontSize="20"
+               TextColor="#fff"
+                   FontAttributes="Bold"
                Padding="10"
                
                />
