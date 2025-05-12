@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Google_Api_by_adled.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="10">
+
+            <!-- SearchBar alineado a la derecha -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <SearchBar Grid.Column="1" 
+                       WidthRequest="200"
+                       Placeholder="Search..."
+                       TextChanged="OnSearchBarTextChanged"/>
+                <CollectionView x:Name="ItemsCollectionView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Label Text="{Binding}" FontSize="18"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+
+            <!-- Dos cuadros grandes -->
+            <Grid ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Column="0" HeightRequest="150" BorderColor="Black"/>
+                <Frame Grid.Column="1" HeightRequest="150" BorderColor="Black"/>
+            </Grid>
+
+            <!-- Cuatro cuadros pequeños -->
+            <Grid ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Column="0" HeightRequest="80" BorderColor="Black"/>
+                <Frame Grid.Column="1" HeightRequest="80" BorderColor="Black"/>
+                <Frame Grid.Column="2" HeightRequest="80" BorderColor="Black"/>
+                <Frame Grid.Column="3" HeightRequest="80" BorderColor="Black"/>
+            </Grid>
+
+            <!-- Label centrado -->
+            <Label Text="label"
+               HorizontalOptions="Center"
+               BackgroundColor="White"
+               Padding="10"
+               
+               />
+
+            <!-- Cuatro cuadros alargados (pueden ser botones, entradas, etc.) -->
+            <VerticalStackLayout Spacing="10">
+                <Frame HeightRequest="40" BorderColor="Black"/>
+                <Frame HeightRequest="40" BorderColor="Black"/>
+                <Frame HeightRequest="40" BorderColor="Black"/>
+                <Frame HeightRequest="40" BorderColor="Black"/>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+        
+    </ScrollView>
+
+</ContentPage>
