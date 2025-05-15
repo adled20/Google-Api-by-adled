@@ -2,10 +2,32 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Google_Api_by_adled.NewPage1"
-             Title="NewPage1">
-    <VerticalStackLayout Padding="20">
-        <Entry x:Name="CityEntry" Placeholder="Escribe una ciudad" />
-        <Button Text="Obtener Clima" Clicked="OnGetWeatherClicked" />
-        <Label x:Name="WeatherLabel" FontSize="18" TextColor="Black"/>
+             Title="Favorito">
+    <VerticalStackLayout>
+        <Label x:Name="Ciudad"/>
+        
+            <Grid RowDefinitions="auto,auto" RowSpacing="10">
+                <Image Grid.Row="0" HorizontalOptions="Center" HeightRequest="180" x:Name="Clima"></Image>
+                <Label HorizontalOptions="Center" Grid.Row="1" x:Name="Climatxt"></Label>
+            </Grid>
+       
+        <Grid ColumnDefinitions="*" ColumnSpacing="10" Margin="10">
+           
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10"  RowDefinitions="auto,auto,auto"  RowSpacing="10">
+                <Frame Grid.Column="0" Grid.Row="0">
+                    <Label  x:Name="Sensacion"></Label>
+                </Frame>
+                <Frame Grid.Column="1" Grid.Row="0">
+                <Label  x:Name="Humedad"></Label>
+                    </Frame>
+                <Frame Grid.Column="0" Grid.Row="1">
+                    <Label  x:Name="Temperatura"></Label>
+                </Frame>
+            </Grid>
+            
+            
+                
+            
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>

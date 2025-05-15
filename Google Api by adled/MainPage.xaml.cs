@@ -1,20 +1,25 @@
 ﻿using System.Collections;
+using System.Collections.ObjectModel;
 using System.Text.Json;
+using Google_Api_by_adled.Model;
 
 namespace Google_Api_by_adled
 {
     public partial class MainPage : ContentPage
     {
+        
         private List<string> items;
         private IEnumerable filteredItems;
 
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = this;
           
-
+            
 
         }
+       
         private async Task GetWeatherAsync(string city)
         {
             string apiKey = "99cb1ff9e6d34469819161934250905"; 
@@ -82,7 +87,28 @@ namespace Google_Api_by_adled
                 await GetWeatherAsync(city);
             }
         }
+        private async void Insertar(object sender, EventArgs e)
+        {
+           var ResultadoInsert= await App.dataBase.InsertUbicacion(new Ubicacion
+           {
+                Ciudad = Ciudad.Text,
+                Temperatura = "Temperatura: "+Temperatura.Text,
+                Sensacion= Sensacion.Text,
+                Humedad= Humedad.Text,
+                Clima= Estado.Text
+           });
+            if (ResultadoInsert > 0)
+            {
+                DisplayAlert("Favorito", "Se ha añadido con exito", "ok");
+            }
 
+        }
+
+        private async void VerTodos(object sender, EventArgs e)
+        {
+            var ListTodos = await App.dataBase.GetAll();
+           await Navigation.PushAsync(new NewPage2(ListTodos));
+        }
     }
 
 }

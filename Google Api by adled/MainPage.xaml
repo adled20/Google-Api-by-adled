@@ -6,7 +6,7 @@
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="10">
 
-            <!-- SearchBar alineado a la derecha -->
+            
             <Grid  ColumnDefinitions="*" RowDefinitions="*,*">
               
 
@@ -14,7 +14,7 @@
                 <Button Grid.Column="0" Grid.Row="2" Text="Obtener Clima" Clicked="OnGetWeatherClicked" />
             </Grid>
 
-            <!-- Dos cuadros grandes -->
+         
             <Grid ColumnDefinitions="*" RowDefinitions="*">
                 <Label TextColor="#fff" x:Name="Ciudad" FontAttributes="Bold"  FontSize="25"></Label>
             </Grid>
@@ -45,7 +45,7 @@
                 </Frame>
             </Grid>
 
-            <!-- Cuatro cuadros pequeños -->
+           
             <Grid ColumnSpacing="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -57,15 +57,15 @@
                     <Grid ColumnDefinitions="*" RowDefinitions="*,*,*">
                         <Label TextColor="#fff" FontAttributes="Bold" x:Name="D1" Grid.Row="0" Grid.Column="0" Text="D1" HorizontalOptions="Center"></Label>
                         <Image x:Name="ImaD1" Grid.Row="1" Grid.Column="0"  HorizontalOptions="Center"/>
-                        <Label TextColor="#fff" x:Name="EstD1" Grid.Row="2" Grid.Column="0" Text="D1" FontSize="11" HorizontalTextAlignment="Center"></Label>
+                        <Label TextColor="#fff" x:Name="EstD1" Grid.Row="2" Grid.Column="0" Text="D1" FontSize="11" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
 
                     </Grid>
                 </Frame>
                 <Frame BackgroundColor="#5b3674" Grid.Column="1" HeightRequest="200" BorderColor="#262626">
                     <Grid ColumnDefinitions="*" RowDefinitions="*,*,*">
-                        <Label TextColor="#fff" FontAttributes="Bold" x:Name="D2" Grid.Row="0" Grid.Column="0" Text="D1" HorizontalOptions="Center"></Label>
+                        <Label TextColor="#fff" FontAttributes="Bold" x:Name="D2" Grid.Row="0" Grid.Column="0" Text="D1"  HorizontalOptions="Center"></Label>
                         <Image x:Name="ImaD2" Grid.Row="1" Grid.Column="0"  HorizontalOptions="Center"/>
-                        <Label TextColor="#fff"  x:Name="EstD2" Grid.Row="2" Grid.Column="0" Text="D1" FontSize="11" HorizontalTextAlignment="Center"></Label>
+                        <Label TextColor="#fff"  x:Name="EstD2" Grid.Row="2" Grid.Column="0" Text="D1" FontSize="11" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
 
                     </Grid>
                 </Frame>
@@ -73,22 +73,22 @@
                     <Grid ColumnDefinitions="*" RowDefinitions="*,*,*">
                         <Label TextColor="#fff" FontAttributes="Bold" x:Name="D3" Grid.Row="0" Grid.Column="0" Text="D1" FontSize="11" HorizontalOptions="Center"></Label>
                         <Image x:Name="ImaD3" Grid.Row="1" Grid.Column="0"  HorizontalOptions="Center"/>
-                        <Label TextColor="#fff" x:Name="EstD3" Grid.Row="2" Grid.Column="0" FontSize="11" Text="D1" HorizontalTextAlignment="Center"></Label>
+                        <Label TextColor="#fff" x:Name="EstD3" Grid.Row="2" Grid.Column="0" FontSize="11" Text="D1" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
 
                     </Grid>
                 </Frame>
                 <Frame BackgroundColor="#5b3674" Grid.Column="3" HeightRequest="200" BorderColor="#262626">
                     <Grid ColumnDefinitions="*" RowDefinitions="*,*,*">
                         <Label TextColor="#fff" FontAttributes="Bold" x:Name="D4" Grid.Row="0" Grid.Column="0" Text="D1" HorizontalTextAlignment="Center"></Label>
-                        <Image x:Name="ImaD4" Grid.Row="1" Grid.Column="0"  HorizontalOptions="Center"/>
-                        <Label TextColor="#fff" x:Name="EstD4" Grid.Row="2" Grid.Column="0" FontSize="11"  HorizontalTextAlignment="Center" Text="D1"></Label>
+                         <Image x:Name="ImaD4" Grid.Row="1" Grid.Column="0"  HorizontalOptions="Center"/>
+                        <Label TextColor="#fff" x:Name="EstD4" Grid.Row="2" Grid.Column="0" FontSize="11" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="D1"></Label>
 
                     </Grid>
                 </Frame>
             </Grid>
 
-            <!-- Label centrado -->
-            <Label Text="Historial de busqueda"
+            <Button Text="Añadir a favoritos" Clicked="Insertar"/>
+            <Label Text="Favoritos"
                FontSize="20"
                TextColor="#fff"
                    FontAttributes="Bold"
@@ -96,12 +96,10 @@
                
                />
 
-            <!-- Cuatro cuadros alargados (pueden ser botones, entradas, etc.) -->
-            <VerticalStackLayout Spacing="10">
-                <Frame HeightRequest="40" BorderColor="Black"/>
-                <Frame HeightRequest="40" BorderColor="Black"/>
-                <Frame HeightRequest="40" BorderColor="Black"/>
-                <Frame HeightRequest="40" BorderColor="Black"/>
+
+            <VerticalStackLayout>
+                <Button Text="Ver Favoritos" Clicked="VerTodos"/>
+
             </VerticalStackLayout>
 
         </VerticalStackLayout>
